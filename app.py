@@ -1,6 +1,8 @@
 import os
 
-restaurantes = ['Pizzaria Mangabeiras' , 'Naruto Sushi']
+restaurantes = [{'nome' : 'Naruto Sushi' , 'categoria' : 'Jponesa' , 'ativo' : False} , 
+                {'nome' : 'Pizzaria Mangabeiras' , 'categora' : 'Italiana' , 'ativo' : True},
+                {'nome' : 'The Mexican' , 'categora' : 'Mexicano' , 'ativo' : True}]
 
 def exibir_nome_programa():
     print("""
@@ -19,8 +21,7 @@ def exibir_opcoes():
     print('4. Sair')
     
 def finalizar_app():
-    os.system('cls')
-    print('Finalizando o app\n')
+    exibir_subtitulo('Finalizar App')
 
 def voltar_ao_menu_principal():
     input('\nDigite uma tecla para voltar ao menu principal: ')
@@ -30,23 +31,26 @@ def opcao_invalida():
     print('Opção Inválida!\n')
     voltar_ao_menu_principal()
     
-def cadastrar_novo_restaurante():
+def exibir_subtitulo(texto : str):
     os.system('cls')
-    print('Cadastro de novos restaurantes.\n')
+    print(texto)
+    
+def cadastrar_novo_restaurante():
+    exibir_subtitulo('Cadastro de novos restaurantes')
+    
     nome_do_restaurante = input('Digite o nome do restaurante que deseja cadastrar: ')
     restaurantes.append(nome_do_restaurante)
+    
     print(f'O restaurante {nome_do_restaurante} foi cadastrado com sucesso!')
     voltar_ao_menu_principal()
       
 def listar_restaurantes():
-    os.system('cls')
-    print('Lista de restaurantes cadastrados')
+    exibir_subtitulo('Listando restaurantes')
     
     for restaurante in restaurantes:
         print(f'-{restaurante}')
     voltar_ao_menu_principal()
     
-
 def escolher_opcao(): 
     try:
         opcao_escolhida = int(input('\nEscolha uma opção: '))
