@@ -17,7 +17,7 @@ def exibir_nome_programa():
 def exibir_opcoes():
     print('1. Cadastrar Restaurante')
     print('2. Listar Restaurante')
-    print('3. Ativar Restaurante')
+    print('3. Aternar status do Restaurante')
     print('4. Sair')
     
 def finalizar_app():
@@ -33,7 +33,11 @@ def opcao_invalida():
     
 def exibir_subtitulo(texto : str):
     os.system('cls')
+    linha = '*' * (len(texto) + 1)
+    
+    print(linha)
     print(texto)
+    print(linha)
     
 def alternar_status_restaurante():
     exibir_subtitulo('Alternando status do restaurante')
@@ -69,7 +73,7 @@ def listar_restaurantes():
     for restaurante in restaurantes:
         nome_restaurante = restaurante['nome']
         categoria_restaurante = restaurante['categoria']
-        status_restaurante = restaurante['ativo']
+        status_restaurante = 'Ativado' if restaurante['ativo'] else 'Desativado'
         
         print(f'- {nome_restaurante} | {categoria_restaurante} | {status_restaurante}')
     voltar_ao_menu_principal()
